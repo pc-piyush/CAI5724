@@ -68,7 +68,7 @@ def build_preprocessor(X):
             cat_feature_names = preproc.named_transformers_['cat'].get_feature_names(cat_cols)
     feature_names = np.concatenate([num_cols, cat_feature_names])
     return preproc, feature_names, num_cols, cat_cols
-
+@st.cache_data(show_spinner=False)
 def train_pipelines(X_train, y_train, preproc, random_state=42):
     # Build pipelines with preprocessor included so they accept raw DataFrames
     pipelines = {
