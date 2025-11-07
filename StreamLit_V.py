@@ -50,7 +50,7 @@ def load_default_data():
 
 @st.cache_data(show_spinner=False)
 def build_preprocessor(X):
-    num_cols = X.select_dtypes(include=[np.number]).columns.tolist()
+    num_cols = ['BMI','MentHlth','PhysHlth','Age']#X.select_dtypes(include=[np.number]).columns.tolist()
     cat_cols = [c for c in X.columns if c not in num_cols]
     # OneHotEncoder(sparse=False) to get feature names easily
     preproc = ColumnTransformer([
@@ -182,7 +182,7 @@ load_default = st.sidebar.button("Load default UCI dataset")
 train_button = st.sidebar.button("Train / Retrain models")
 
 # Feature selection threshold
-fi_threshold = st.sidebar.slider("Feature importance threshold (select features > value)", min_value=0.0, max_value=0.05, value=0.01, step=0.001)
+fi_threshold = st.sidebar.slider("Feature importance threshold (select features > value)", min_value=0.0, max_value=0.05, value=0.02, step=0.001)
 
 # Similarity & intervention controls
 st.sidebar.markdown("---")
