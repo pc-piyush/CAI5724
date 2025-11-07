@@ -237,7 +237,7 @@ y = df["Diabetes_binary"].copy().astype(int)
 preproc, feature_names, num_cols, cat_cols = build_preprocessor(X)
 
 # train/test split (fixed)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y, random_state=42)
 
 # transform arrays for reduced training and similarity
 X_train_trans = preproc.transform(X_train)
